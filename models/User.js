@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
-mongoose.connect("mongodb+srv://ldh9904:<db_password>@cluster0.lldi0.mongodb.net/")
+mongoose.connect("mongodb+srv://ldh9904:europe99!!@cluster0.lldi0.mongodb.net/1")
   .then(() => {
     console.log("Connected to MongoDB => UserAPI");
   })
@@ -8,16 +10,11 @@ mongoose.connect("mongodb+srv://ldh9904:<db_password>@cluster0.lldi0.mongodb.net
     console.log(err);
   });
 
-const userSchema = new mongoose.Schema({
-  user_id: {
-    required: true,
-    unique: true,
-    type: String,
-  },
-  password: {
-    required: true,
-    type: String,
-  },
+const userSchema = new Schema({
+	username: {type: String, required: true},
+	password: {type: String},
 });
 
-module.exports = mongoose.model("User", userSchema);
+userSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model('User', userSchema);
