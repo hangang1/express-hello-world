@@ -13,7 +13,7 @@ module.exports = () => {
         done(null, user);
       })
       .catch(err => done(err))
-    })
+    });
 
   local();
 };

@@ -7,13 +7,11 @@
   <body>
     <h1>Codewars</h1>
     <h2>코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!</h2>
-
     <ul class="tabs">
       <li>Level 1</li>
       <li>Level 2</li>
       <li>Level 3</li>
     </ul>
-
     <ul class="problems">
         <li>
         <h4><% for(let i = 0; i < quiz.length; i++) { %>
@@ -26,10 +24,12 @@
       </li>
     </ul>
 
-<script type="text/javascript">
-  function openProblem(i) {
-    alert(<%= quiz[i] %>);
-  }
-</script>
+    <script type="text/javascript">
+      function openProblem(id) {
+        console.log(id);
+        window.location.href = `http://localhost:8000/problems/${id}`
+      }
+    </script>
+
   </body>
 </html>
