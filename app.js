@@ -17,6 +17,7 @@ passportConfig();
 mongoose.connect("mongodb+srv://ldh9904:europe99!!@cluster0.lldi0.mongodb.net/1")
   .then(() => {
     console.log("Connected to MongoDB => UserAPI");
+    findProblem();
   })
   .catch((err) => {
     console.log(err);
@@ -29,8 +30,6 @@ const findProblem = async function pro() {
   }
   return result;
 }
-
-findProblem();
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
